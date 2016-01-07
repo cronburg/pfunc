@@ -1,6 +1,7 @@
 """ Data/Maybe.py - functional programming library for the Maybe monad
 """
 import pfunc.Prelude
+from pfunc.Prelude import *
 
 # maybe :: b -> (a -> b) -> Maybe a -> b
 def maybe(n, f, m):
@@ -8,10 +9,10 @@ def maybe(n, f, m):
   return f(m.val)
 
 # isJust :: Maybe a -> Bool
-isJust = lambda x: x.is_just
+isJust = lambda x: x.typ == Just
 
 # isNothing :: Maybe a -> Bool
-isNothing = lambda x: not x.is_just
+isNothing = lambda x: x.typ == Nothing
 
 # fromJust :: Maybe a -> a
 def fromJust(m):
